@@ -22,7 +22,7 @@ class ArgumentHandler:
         self.__parser = ArgumentParser()
         for arg in self.__arguments:
             arg_to_dict = arg.to_dict()
-            self.__parser.add_argument(arg.arg_name, **arg_to_dict['arg_details'])
+            self.__parser.add_argument(*arg.argname, **arg_to_dict['arg_details'])
         self.args = self.__parser.parse_args()
 
     def __get_argument_by_arg_name(self, arg_name):
@@ -33,7 +33,7 @@ class ArgumentHandler:
         :return: the Argument object instance
         """
         for arg in self.__arguments:
-            if arg_to_attr(arg.arg_name) == arg_name:
+            if arg_name in arg_to_attr(arg.arg_name):
                 return arg
 
     def __validate_args(self):
