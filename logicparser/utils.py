@@ -20,10 +20,15 @@ class Argument(DictObject):
         super(Argument, self).__init__(**kwargs)
         self.__allowed_attrs = {
             'required': ('arg_name',),
-            'arg_details': ('metavar', 'action', 'help',),
+            'arg_details': ('metavar', 'action', 'help', 'nargs',),
             'arg_relations': ('require', 'conflict', 'dependency',)
         }
         self.__validate_args()
+
+    @property
+    def argname(self):
+        name = self.arg_name
+        return (name,) if isinstance(name, str) else name
 
     @property
     def __declared_attrs(self):
@@ -60,26 +65,25 @@ class Argument(DictObject):
         Parse the object to dict
         :return: the dict
         """
-        dict_repr = {}
-        dict_repr['arg_details'] = {}
+        dict_repr = {'arg_details': {}}
         for detail in self.__allowed_attrs['arg_details']:
-           if hasattr(self, detail):
+            if hasattr(self, detail):
                 dict_repr['arg_details'][detail] = getattr(self, detail)
 
         for relation in self.__allowed_attrs['arg_relations']:
-           if hasattr(self, relation):
+            if hasattr(self, relation):
                 dict_repr[relation] = getattr(self, relation)
         return dict_repr
 
 
-def arg_to_attr(arg):
+def arg_to_attr(arg_name):
     """
     Format an argument like an object attribute
 
-    :param arg: the argument to parse
-    :return: the parsed attribute
+    :param arg: the list of arguments name to parse
+    :return: the parsed attributes list
     """
-    return arg.replace('--', '').replace('-', '_')
+    return [arg.replace('--', '').replace('-', '_') for arg in arg_name]
 
 
 def attr_to_arg(attr):
