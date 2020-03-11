@@ -19,7 +19,7 @@ def read_file(path):
 
 setup(
     name=NAME,
-    version='1.0.0',
+    version='1.1.0',
     author='Giuseppe "mastrobirraio" Matranga',
     author_email='matrangagiuseppe99@gmail.com',
     maintainer='Giuseppe "mastrobirraio" Matranga',
@@ -42,6 +42,6 @@ setup(
         'Programming Language :: Python :: Implementation :: PyPy',
         'Topic :: Terminals'
     ],
-    keywords='args, arguments, argparse, parser, logic, logicparser',
+    keywords='args, arguments, argparser, parser, logic, logicparser',
     python_requires='>=3.6'
 )
