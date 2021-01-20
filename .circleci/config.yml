@@ -14,7 +14,7 @@ jobs:
     steps:
       - checkout
       - run: pip3 install isort
-      - run: isort -c logthon/logthon.py
+      - run: isort -c logicparser/*.py
 
   flake:
     docker:
@@ -22,7 +22,7 @@ jobs:
     steps:
       - checkout
       - run: pip3 install flake8
-      - run: flake8 --max-line-length=120 --ignore=F401,E402
+      - run: flake8 --max-line-length=120 --ignore=F401,F403,E402
 
   deploy_pypi_test:
     docker:
