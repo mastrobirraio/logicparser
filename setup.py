@@ -19,7 +19,7 @@ def read_file(path):
 
 setup(
     name=NAME,
-    version='1.1.2',
+    version='1.2.0',
     author='Giuseppe "mastrobirraio" Matranga',
     author_email='matrangagiuseppe99@gmail.com',
     maintainer='Giuseppe "mastrobirraio" Matranga',
