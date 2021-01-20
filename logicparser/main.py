@@ -1,4 +1,4 @@
-from .utils import attr_to_arg, arg_to_attr
+from .utils import arg_to_attr, attr_to_arg
 
 
 class ArgumentHandler:
