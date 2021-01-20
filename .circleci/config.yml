@@ -39,7 +39,7 @@ jobs:
           command: |
             echo -e "[testpypi]" >> .pypirc
             echo -e "username = __token__" >> .pypirc
-            echo -e "password = ${PIPY_TEST_TOKEN}" >> .pypirc
+            echo -e "password = ${PYPI_TEST_TOKEN}" >> .pypirc
             cat .pypirc
       - run:
           name: Create packages
@@ -66,7 +66,7 @@ jobs:
           command: |
             echo -e "[pypi]" >> .pypirc
             echo -e "username = __token__" >> .pypirc
-            echo -e "password = ${PIPY_TOKEN}" >> .pypirc
+            echo -e "password = ${PYPI_TOKEN}" >> .pypirc
             cat .pypirc
       - run:
           name: Create packages
